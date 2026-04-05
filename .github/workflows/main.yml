@@ -16,13 +16,14 @@ jobs:
       - name: Install Buildozer and Dependencies
         run: |
           sudo apt update
-          sudo apt install -y git zip unzip autoconf automake libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
+          # Updated list for Ubuntu 24.04 (Noble)
+          sudo apt install -y git zip unzip autoconf automake libtool pkg-config zlib1g-dev libncurses6-dev libncursesw6-dev libtinfo6 cmake libffi-dev libssl-dev
           pip install --upgrade pip
-          pip install buildozer cython==0.29.33
+          pip install buildozer cython
 
       - name: Build APK with Buildozer
         run: |
-          # This command accepts all Android licenses automatically
+          # The "yes |" ensures we don't get stuck on license prompts
           yes | buildozer -v android debug
         
       - name: Upload APK Artifact
