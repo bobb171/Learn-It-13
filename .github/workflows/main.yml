@@ -9,8 +9,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build with Buildozer
-        # Note the Capital 'A' and 'S' in the name below:
-        uses: ArtemSerebrenninkov/buildozer-action@v1
+        # Using the official action path for 2026
+        uses: GearSnd/buildozer-action@v1
         with:
           buildozer_version: master
           python_version: 3.11
